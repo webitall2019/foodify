@@ -1,0 +1,10 @@
+
+.image{
+    display: block;
+    max-width: 80%;
+    margin: 0 auto;
+}
+.buttonsBox{
+    display: flex;
+    justify-content: space-between;
+}

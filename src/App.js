@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import classes from "./App.module.css";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Random from "./components/random/Random";
+import Favorites from "./components/Favourites/Favourites";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <nav className={classes.header}>
+          <ul className={classes.header__list}>
+            <li>
+              <Link to="./main">Random dish</Link>
+            </li>
+            <li>
+              <Link to="/favorites">Favorites</Link>
+            </li>
+          </ul>
+        </nav>
+        <Route path="/main" component={Random} />
+        <Route path="/favorites" component={Favorites} />
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,12 @@
+.container{
+    max-width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width: 768.1px) {
+  .container{
+    flex-direction: column;
+    align-content: center;
+  }
+}
