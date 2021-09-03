@@ -10,7 +10,9 @@ function Favorites(props) {
   const updatePage = (state) => {
     return setIsNewreceipt(state);
   };
-
+  useEffect(() => {
+    setIsNewreceipt(true);
+  }, [isNewreceipt]);
   let likedReceipts = [];
   for (let obj in localStorage) {
     if (localStorage.getItem(obj) !== null) {
