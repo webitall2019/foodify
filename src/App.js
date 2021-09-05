@@ -1,7 +1,7 @@
 import classes from "./App.module.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Random from "./components/random/Random";
-import Favorites from "./components/Favourites/Favourites";
+import Favourites from "./components/Favourites/Favourites";
 function App() {
   return (
     <div className="App">
@@ -12,12 +12,12 @@ function App() {
               <Link to="./main">Random dish</Link>
             </li>
             <li>
-              <Link to="/favorites">Favorites</Link>
+              <Link to="/favorites">Favourites</Link>
             </li>
           </ul>
         </nav>
         <Route path="/main" component={Random} />
-        <Route path="/favorites" component={Favorites} />
+        <Route path="/favorites" component={Favourites} />
       </Router>
     </div>
   );

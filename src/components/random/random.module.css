@@ -1,8 +1,10 @@
-
+.cardImageWrap{
+    max-width: 400px;
+    margin: 0 auto;
+}
 .image{
     display: block;
-    max-width: 80%;
-    margin: 0 auto;
+    width: 100%;
 }
 .buttonsBox{
     display: flex;

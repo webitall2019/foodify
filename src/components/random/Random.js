@@ -7,18 +7,20 @@ import placeholderImage from "../../img/Placeholder.png";
 const API_URL = "https://www.themealdb.com/api/json/v1/1/random.php";
 function Random() {
   const [mealObject, setMealObject] = useState({});
+  const [isDisabled, setIsDisabled] = useState(false);
   const getMeals = async () => {
     try {
       const apiRequest = await fetch(API_URL);
       let answer = apiRequest.json();
-
       answer.then((data) => {
         setMealObject(data.meals[0]);
       });
     } catch (error) {
       console.log(error);
     }
+    setIsDisabled(false);
   };
+
   useEffect(() => {
     getMeals();
   }, []);
@@ -31,6 +33,8 @@ function Random() {
     randomRecipt.isDisabled = true;
     randomRecipt = JSON.stringify(randomRecipt);
     localStorage.setItem(`${Math.random().toFixed(2) * 100}`, randomRecipt);
+    setIsDisabled(true);
+    console.log("saved receipt");
     return;
   };
   const skipFunc = () => {
@@ -38,8 +42,8 @@ function Random() {
   };
   return (
     <Container>
-      <Card>
-        <div className={classes.thumb}>
+      <Card size={100}>
+        <div className={classes.cardImageWrap}>
           <img
             src={
               mealObject.strMealThumb
@@ -59,7 +63,7 @@ function Random() {
           <Button
             btnName={"Like"}
             onLike={saveReceipt}
-            // isDisable={true}
+            isDisabled={isDisabled}
           ></Button>
         </div>
       </Card>

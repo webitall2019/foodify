@@ -1,15 +1,20 @@
 import classes from "./button.module.css";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Button(props) {
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  useEffect(() => {
+    setIsDisabled(props.isDisabled);
+  }, [props.isDisabled]);
+
   return (
     <button
       onClick={() => {
         (props.btnName === "Like" ? props.onLike : props.onSkip)();
-        console.log("test");
       }}
       className={classes.button}
-      disabled={false}
+      disabled={isDisabled}
     >
       {props.btnName}
     </button>

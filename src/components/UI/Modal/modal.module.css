@@ -1,11 +1,11 @@
 .modal{
-    background-color: gray;
+    background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 1000vh;
     z-index: 100;
     position: fixed;
     left: 0;
-    top: 65px;
+    top: 0;
 }
 .formBox{
     padding: 28px;
@@ -37,13 +37,5 @@ textarea{
     .formBox{
         max-width: 440px;
         margin: 150px auto;
-    }
-    .modal{
-        top: 65px
-    }
-}
-@media screen and (max-width: 375px) {
-    .modal{
-        top: 100px
-    }
+    }  
 }

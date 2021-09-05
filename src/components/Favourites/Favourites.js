@@ -5,11 +5,9 @@ import classes from "./favourites.module.css";
 import placeholderImage from "../../img/Placeholder.png";
 import Modal from "../UI/Modal/Modal";
 function Favorites(props) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState();
   const [isNewreceipt, setIsNewreceipt] = useState(false);
-  const updatePage = (state) => {
-    return setIsNewreceipt(state);
-  };
+
   useEffect(() => {
     setIsNewreceipt(true);
   }, [isNewreceipt]);
@@ -21,7 +19,7 @@ function Favorites(props) {
   }
 
   const addNewReceiptFunc = () => {
-    isOpen === false ? setIsOpen(true) : setIsOpen(false);
+    setIsOpen(true);
   };
 
   return (
@@ -38,8 +36,8 @@ function Favorites(props) {
         {likedReceipts.length ? (
           likedReceipts.map((receipt, index) => {
             return (
-              <Card key={index} size={"30%"}>
-                <div style={{ textAlign: "center" }}>
+              <Card key={index} size={"28%"} cardCount={likedReceipts.length}>
+                <div style={{ maxWidth: "400px", margin: "0 auto" }}>
                   <img
                     style={{ maxWidth: "100%" }}
                     src={receipt.img ? receipt.img : placeholderImage}
@@ -60,12 +58,7 @@ function Favorites(props) {
           </p>
         )}
       </Container>
-      <Modal
-        isOpen={isOpen}
-        updateFunc={() => {
-          updatePage();
-        }}
-      ></Modal>
+      <Modal isOpen={isOpen}></Modal>
     </div>
   );
 }

@@ -1,10 +1,14 @@
 import classes from "./modal.module.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function Modal(props) {
   const [isOpen, setIsOpen] = useState(props.isOpen);
   const [newReceiptTitle, setNewReceiptTitle] = useState("");
   const [newReceiptDescription, setNewReceiptDescription] = useState("");
+
+  useEffect(() => {
+    setIsOpen(props.isOpen);
+  }, [props.isOpen]);
 
   let newReceipt = {};
   const submitForm = (e) => {
@@ -23,10 +27,9 @@ function Modal(props) {
       alert("Please fill out all areas");
       hideModal();
     }
-    props.updateFunc(true);
   };
   const hideModal = () => {
-    setIsOpen(true);
+    setIsOpen(!props.isOpen);
   };
   return props.isOpen ? (
     <div
@@ -36,7 +39,7 @@ function Modal(props) {
           hideModal();
         }
       }}
-      style={isOpen ? { display: "none" } : { display: "block" }}
+      style={{ display: isOpen ? "block" : "none" }}
     >
       <div className={classes.formBox}>
         <h3>Add custom dish</h3>
@@ -48,12 +51,14 @@ function Modal(props) {
           <input
             type="text"
             placeholder="Dish title"
+            required
             onChange={(e) => {
               setNewReceiptTitle(e.target.value);
             }}
           />
           <textarea
-            placeholder="Dish description"
+            placeholder="Dish description ..."
+            required
             onChange={(e) => {
               setNewReceiptDescription(e.target.value);
             }}
@@ -62,7 +67,6 @@ function Modal(props) {
         </form>
       </div>
     </div>
-  ) :
-  null;
+  ) : null;
 }
 export default Modal;

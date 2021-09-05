@@ -4,9 +4,3 @@
     display: flex;
     flex-wrap: wrap;
 }
-@media screen and (max-width: 768.1px) {
-  .container{
-    flex-direction: column;
-    align-content: center;
-  }
-}

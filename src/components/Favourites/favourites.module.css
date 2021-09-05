@@ -7,14 +7,18 @@
 .main.card{
     flex-basis: 29%;
 }
-@media screen and (min-width: 425px) {
-    .addNewReceiptBtn{
-        top: 14px;
-    }
-}
+
 @media screen and (min-width: 768px) {
     .addNewReceiptBtn{
         font-size: 18px;
-        top: 12px;
+        top: 14px;
+    }
+    .main.container > div {
+        max-width: 40%;
+    }
+}
+@media screen and (min-width: 425px) {
+    .addNewReceiptBtn{
+        top: 10px;
     }
 }

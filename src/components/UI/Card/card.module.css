@@ -1,20 +1,25 @@
 .card {
     border-radius: 5px;
-    width: 500px;
-    max-width: 35%;
+    max-width: 500px;
     margin: 40px auto 0 auto;
     background-color: ghostwhite;
     padding: 20px;
     overflow: scroll;
     max-height: 90vh;
+    min-width: 28%;
 }
 @media screen and (min-width: 1024.1px) {
     .card{
-        max-width: 28%;    
+        max-width: 50%;    
     }
 }
-@media screen and (max-width: 768.1px) {
+@media screen and (max-width: 1024.1px) {
     .card{
-        max-width: 100%;    
+        min-width: 40%;    
+    }
+}
+@media screen and (max-width: 425.1px) {
+    .card{
+        max-width: 100%!important;    
     }
 }
