@@ -27,6 +27,7 @@ function Modal(props) {
       alert("Please fill out all areas");
       hideModal();
     }
+    props.updateFunc(true);
   };
   const hideModal = () => {
     setIsOpen(!props.isOpen);

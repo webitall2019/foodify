@@ -7,16 +7,26 @@ import Modal from "../UI/Modal/Modal";
 function Favorites(props) {
   const [isOpen, setIsOpen] = useState();
   const [isNewreceipt, setIsNewreceipt] = useState(false);
+  const updatePage = (state) => {
+    return setIsNewreceipt(state);
+  };
+  let likedReceipts = [];
 
   useEffect(() => {
     setIsNewreceipt(true);
+    return () => {
+      setIsNewreceipt(true);
+    };
   }, [isNewreceipt]);
-  let likedReceipts = [];
-  for (let obj in localStorage) {
-    if (localStorage.getItem(obj) !== null) {
-      likedReceipts.push(JSON.parse(localStorage.getItem(obj)));
+
+  const showAllSavedreceipts = () => {
+    for (let obj in localStorage) {
+      if (localStorage.getItem(obj) !== null) {
+        likedReceipts.push(JSON.parse(localStorage.getItem(obj)));
+      }
     }
-  }
+  };
+  showAllSavedreceipts();
 
   const addNewReceiptFunc = () => {
     setIsOpen(true);
@@ -58,7 +68,12 @@ function Favorites(props) {
           </p>
         )}
       </Container>
-      <Modal isOpen={isOpen}></Modal>
+      <Modal
+        isOpen={isOpen}
+        updateFunc={() => {
+          updatePage();
+        }}
+      ></Modal>
     </div>
   );
 }
