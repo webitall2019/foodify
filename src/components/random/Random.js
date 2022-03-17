@@ -5,6 +5,7 @@ import Button from "../UI/Button/Button";
 import classes from "./random.module.css";
 import placeholderImage from "../../img/Placeholder.png";
 const API_URL = "https://www.themealdb.com/api/json/v1/1/random.php";
+
 function Random() {
   const [mealObject, setMealObject] = useState({});
   const [isDisabled, setIsDisabled] = useState(false);

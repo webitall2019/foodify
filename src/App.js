@@ -9,7 +9,7 @@ function App() {
         <nav className={classes.header}>
           <ul className={classes.header__list}>
             <li>
-              <Link to="./main">Random dish</Link>
+              <Link to="/">Random dish</Link>
             </li>
             <li>
               <Link to="/favorites">Favourites</Link>
