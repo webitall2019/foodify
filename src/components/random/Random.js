@@ -35,7 +35,7 @@ function Random() {
     randomRecipt = JSON.stringify(randomRecipt);
     localStorage.setItem(`${Math.random().toFixed(2) * 100}`, randomRecipt);
     setIsDisabled(true);
-    console.log("receipt saved");
+    alert("receipt saved");
     return;
   };
   const skipFunc = () => {

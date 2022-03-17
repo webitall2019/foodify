@@ -18,7 +18,7 @@ function Modal(props) {
     if (newReceiptTitle.length > 5 && newReceiptDescription.length > 10) {
       newReceipt = JSON.stringify(newReceipt);
       localStorage.setItem(
-        `${"newReceiptId" + Math.random().toFixed(2) * 100}`,
+        `${Math.random().toFixed(2) * 100}`,
         newReceipt
       );
       alert("New receipt created");
