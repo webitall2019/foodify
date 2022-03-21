@@ -4,8 +4,9 @@ import Container from "../UI/Container/Container";
 import classes from "./favourites.module.css";
 import placeholderImage from "../../img/Placeholder.png";
 import Modal from "../UI/Modal/Modal";
-function Favorites(props) {
-  const [isOpen, setIsOpen] = useState();
+
+function Favorites() {
+  const [isOpen, setIsOpen] = useState(false);
   const [isNewreceipt, setIsNewreceipt] = useState(false);
   const updatePage = (state) => {
     return setIsNewreceipt(state);
@@ -29,7 +30,7 @@ function Favorites(props) {
   showAllSavedreceipts();
 
   const addNewReceiptFunc = () => {
-    setIsOpen(true);
+    setIsOpen(!isOpen);
   };
 
   return (

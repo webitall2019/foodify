@@ -4,6 +4,7 @@ import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import classes from "./random.module.css";
 import placeholderImage from "../../img/Placeholder.png";
+
 const API_URL = "https://www.themealdb.com/api/json/v1/1/random.php";
 
 function Random() {
@@ -23,6 +24,7 @@ function Random() {
   };
 
   useEffect(() => {
+    console.log("random");
     getMeals();
   }, []);
 
@@ -44,6 +46,14 @@ function Random() {
   return (
     <Container>
       <Card size={100}>
+        <div className={classes.buttonsBox}>
+          <Button btnName={"Skip"} onSkip={skipFunc} ></Button>
+          <Button
+            btnName={"Like"}
+            onLike={saveReceipt}
+            isDisabled={isDisabled}
+          ></Button>
+        </div>
         <div className={classes.cardImageWrap}>
           <img
             src={
@@ -58,14 +68,6 @@ function Random() {
         <div className="meal-info">
           <h3 className="meal-title">{mealObject.strMeal}</h3>
           <p className="meal-receipt">{mealObject.strInstructions}</p>
-        </div>
-        <div className={classes.buttonsBox}>
-          <Button btnName={"Skip"} onSkip={skipFunc}></Button>
-          <Button
-            btnName={"Like"}
-            onLike={saveReceipt}
-            isDisabled={isDisabled}
-          ></Button>
         </div>
       </Card>
     </Container>
